@@ -1,0 +1,54 @@
+@using LinkedCS.Models
+@model User
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/css/regpage_styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="row base">
+        <div class="baseCol col"></div>
+        
+        <div class="baseCol col-6">
+            <div class="card">
+                <h2>Register</h2>
+                <form asp-action="HandleRegister" asp-controller="LogReg" method="post">
+
+                    <span asp-validation-for="FirstName"></span>
+                    <label asp-for="FirstName" class="firstLabel">First Name</label>
+                    <input asp-for="FirstName">
+
+                    <span asp-validation-for="LastName"></span>
+                    <label asp-for="LastName" class="lastLabel">Last Name</label>
+                    <input asp-for="LastName">
+
+                    <span asp-validation-for="Email"></span>
+                    <label asp-for="Email" class="emailLabel">Email</label>
+                    <input asp-for="Email">
+
+                    <span asp-validation-for="Password"></span>
+                    <label asp-for="Password" class="passwordLabel">Password</label>
+                    <input asp-for="Password">
+
+                    <span asp-validation-for="Confirm"></span>
+                    <label asp-for="Confirm" class="confirmLabel">Confirm Password</label>
+                    <input asp-for="Confirm">
+
+                    <input class="submitButton" type="submit" value="Register">
+                </form>
+
+                <p><a href="/login">Already a User?</a></p>
+            </div>
+        </div>
+        <div class="baseCol col"></div>
+
+    </div>
+</body>
+</html>

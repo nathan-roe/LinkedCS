@@ -1,0 +1,45 @@
+@using LinkedCS.Models
+@model User
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/logpage_styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="row base">
+        <div class="baseCol col"></div>
+        
+        <div class="baseCol col-6">
+            <div class="card">
+                <h2>Login</h2>
+                
+                <form asp-action="HandleLogin" asp-controller="LogReg" method="post">
+
+                    <div class="emailDiv">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email">
+                    </div>
+
+                    <div class="passDiv">
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password">
+                    </div>
+
+                    <input class="submitButton" type="submit" value="Login">
+                </form>
+
+                <p><a href="/">Not a User?</a></p>
+            </div>
+        </div>
+        <div class="baseCol col"></div>
+
+    </div>
+</body>
+</html>

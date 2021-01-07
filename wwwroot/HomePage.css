@@ -1,0 +1,78 @@
+.body {
+    background-color:rgb(243,242,239);
+    padding: 0;
+}
+
+.main {
+    margin: 0;
+    padding: 0;
+    margin-top: 3rem;
+}
+.base {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.baseCol {
+    height: 100%;
+    margin: 0;
+}
+.card {
+    margin: 0px;
+}
+.userProf #row1 {
+    height: 2rem;
+}
+.userProf #row2 {
+    height: 5rem;
+}
+.userProf #row3 {
+    height: 5rem;
+}
+.userProf #row4 {
+    height: 5rem;
+}
+.table2 {
+    margin-top: 2rem;
+}
+.table2 #row1 {
+    height: 5rem;
+}
+.table2 #row2 {
+    height: 5rem;
+}
+.post {
+    height: 7rem;
+}
+.stories {
+    margin-top: 1rem;
+    height: 5rem;
+}
+.feed {
+    margin-top: 1rem;
+    height: 25rem;
+}
+.news {
+    margin-top: 1rem;
+    height: 5rem;
+}
+.mostViewed {
+    margin-top: 1rem;
+    height: 5rem;
+}
+.ad {
+    margin-top: 1rem;
+    height: 5rem;
+}   
+.absoluteMess {
+    margin-top: 1rem;
+    height: 5rem;
+}
+.TM {
+    margin-top: 1rem;
+    height: 1rem;
+}
+.postInput {
+    width: 90%;
+    height: 50%;
+}

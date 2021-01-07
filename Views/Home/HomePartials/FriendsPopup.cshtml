@@ -1,0 +1,68 @@
+@using LinkedCS.Models
+@model User
+@{
+    if(!Model.HasLogged)
+    {
+        <div class="popup" style="display: flex; width: 100%; height: 100%; justify-content: center;">
+            <div style="position: absolute; z-index: 4; width: 75%; height: 30rem; top:0; border: 2px solid darkgray; background-color: white; backdrop-filter: grayscale(30%)">
+                <div class="row" style="height: 100%;">
+                    <div class="col" style="display: flex; flex-direction: column; align-items: center;">
+                    <h2>Get Started</h2>
+                    </div>
+                    <div class="col-6" style="border-right: 1px solid lightgray; border-left: 1px solid lightgray; display: flex; flex-direction: column; align-items: center; outline: 1px solid blue;">
+                        
+                        <div style="width: 100%; height: 20%; outline: 1px solid red;">
+                            <table style="width: inherit; height: inherit;">
+                                <div style="display: flex; justify-content: space-evenly;">
+                                    <p style="margin-right: 3rem;">Photos</p>
+                                    <p></p>
+                                    <p>Bio</p>
+                                    <p></p>
+                                    <p style="margin-left: 3rem;">Friends</p>
+                                </div>
+                                <div style="display: flex; justify-content: space-evenly;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-record-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                </div>
+                            </table>
+                        </div>
+                        <p style="margin-top: 1rem;">Find Friends</p>
+                        
+                        <div class="findFriends" style="width: 100%; height: 65%; border: 1px solid grey;">
+
+                        </div>
+
+
+                        <div style="margin-top: 5%; width: 100%; height: 8%; outline: 1px solid red; display: flex; justify-content: space-between;">
+                            <button id="back" style="background-color: white; border: 2px solid lightgray; border-radius: 15%; color: rgb(108,170,219); font-size: 20px;">Back</button>
+                            <button id="next" style="background-color: white; border: 2px solid lightgray; border-radius: 15%; color: rgb(108,170,219); font-size: 20px;">Next</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div style="height: 90%; width: 100%;">
+
+                        </div>
+                        <div style="height: 10%; width: 100%;">
+                            <form action="/checkedIn" method="post">
+                                <button id="popupButton" style="margin-left: 65%; background-color: white; border: 2px solid lightgray; border-radius: 15%; color: rgb(108,170,219); font-size: 20px;">Later</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}  

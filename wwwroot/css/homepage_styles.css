@@ -1,0 +1,218 @@
+body {
+    margin-top: 5rem; 
+    margin-bottom: 5rem; 
+    background-color:rgb(243,242,239); 
+    padding: 0;
+}
+#col1 {
+    width: 18.5%
+}
+    .c1 {
+        position: fixed; 
+        width: inherit; 
+        background-color: rgb(243,242,239);
+    }
+        .userProf {
+            background-color: white;
+        }
+            .profHead {
+                width: 100%; 
+                height: 4rem; 
+                background-color: grey; 
+                display: flex; 
+                justify-content: center; 
+                padding-top: 10px;
+            }
+                .profPic {
+                    width: 100px; 
+                    height: 100px; 
+                    border-radius: 50%; 
+                    background-color: blue; 
+                    z-index: 1; 
+                    position: absolute;
+                }
+            .filler {
+                width: 100%; 
+                height: 4rem;
+            }
+            .bio {
+                text-align: center;
+            }
+            .post {
+                display: flex; 
+                align-items: center; 
+                flex-direction: column; 
+                height: 7rem; 
+                background-color: white; 
+                border-radius: 25px;
+            }
+                .postInput {
+                    width: 90%; 
+                    height: 50%; 
+                    margin-top: 1rem; 
+                    margin-bottom: 1rem; 
+                    border: 1px solid purple; 
+                    border-radius: 10rem; 
+                    display: flex; 
+                    justify-content: start; 
+                    align-items: center;
+                }
+                    .postInput svg {
+                        height: 1.5rem; 
+                        width: 1.5rem;
+                    }
+                .spBackground {
+                    width: 90%; 
+                    display: flex; 
+                    justify-content: space-between;
+                }
+                    .spBackground button {
+                        background-color: Transparent; 
+                        background-repeat:no-repeat; 
+                        border: none; cursor:pointer; 
+                        overflow: hidden; 
+                        outline:none;
+                    }
+                        .spBackground button svg {
+                            height: 1.5rem; 
+                            width: 1.5rem;
+                        }
+        .table2 {
+            margin-top: 5rem; 
+            background-color: white; 
+            border-radius: 25px;
+        }
+            .table2 div {
+                height: 2rem;
+            }
+    .c2 {
+        background-color: rgb(243,242,239); 
+        padding-top: 0;
+    }
+        .stories {
+            display: flex; 
+            background-color: white; 
+            border-radius: 25px; 
+            margin-top: 0;
+        }
+            .story {
+                height: 100%; 
+                width: 5rem; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                flex-direction: column;
+            }
+                .story div {
+                    width: 60px; 
+                    height: 60px; 
+                    border-radius: 50%; 
+                    background-color: blue; 
+                    position: absolute; 
+                    margin-bottom: 1rem;
+                }
+                .story p {
+                    font-size: 12px; 
+                    z-index: 1; 
+                    margin-top: 5rem;
+                }
+            .feed {
+                background-color: white;
+            }
+                .feedHead {
+                    height: 15%; 
+                    display: flex; 
+                    justify-content: space-between; 
+                    align-items: center;
+                }
+                    .feedUser {
+                        display: flex; 
+                        justify-content: start; 
+                        align-items: center;
+                    }
+                        .feedUser div {
+                            width: 50px; 
+                            height: 50px; 
+                            border-radius: 50%; 
+                            background-color: blue; 
+                            margin-bottom: 1rem; 
+                            margin-top: 1rem; 
+                            margin-left: 1rem;
+                        }
+                        .feedUser p {
+                            margin-top: 1rem; 
+                            margin-left: .5rem;
+                        }
+                .feedContent {
+                    height: 70%;
+                }
+                .feedFooter {
+                    height: 15%; 
+                    display: flex; 
+                    justify-content: space-between; 
+                    padding-left: 1rem; 
+                    padding-right: 1rem;
+                }
+                    .likes {
+                        display: flex; 
+                        align-items: center;
+                    }
+                        .likes p {
+                            margin-top: .5rem; 
+                            margin-left: 1rem;
+                        }
+                    .actions {
+                        display: flex; 
+                        align-items: center;
+                    }
+                        #comment {
+                            margin-left: .5rem;
+                        }
+                        #arrow {
+                            margin-left: .5rem;
+                        }
+                        #bookmark {
+                            margin-left: .5rem;
+                        }
+    .bc3 {
+        width: 18.5%
+    }
+        .parentCard {
+            overflow-x: hidden; 
+            position: fixed; 
+            width: inherit;
+        }
+            .c3 {
+                overflow-y: scroll; 
+                height: 27rem; 
+                width: 110%; 
+                background-color: rgb(243,242,239);
+            }
+                .potFriend {
+                    background-color: white;
+                    margin-top: 1rem;
+                }
+                    #pf1 {
+                        width: 100%; 
+                        height: 50px; 
+                        background-color: grey; 
+                        display: flex; 
+                        justify-content: center; 
+                        padding-top: 10px;
+                    }
+                        #pf1 div {
+                            width: 75px; 
+                            height: 75px; 
+                            border-radius: 50%; 
+                            /* background-color: blue;  */
+                            
+                            z-index: 1; 
+                            position: absolute;
+                        }
+                    #pf2 {
+                        width: 100%; 
+                        height: 50px;
+                    }
+                    .pfBio {
+                        text-align: center;
+                    }

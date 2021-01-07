@@ -1,0 +1,66 @@
+body {
+    margin-top: 5rem; 
+    display: flex; 
+    justify-content: center; 
+    text-align: center;      
+    background-color:rgb(243,242,239);
+}
+.card {
+    width: inherit; 
+    height: 30rem; 
+    background-color: white; 
+    padding-left: 1rem; 
+    padding-right: 1rem;
+}
+h2 {
+    margin-top: 5%; 
+    border-bottom: 1px solid grey; 
+    width: 100%;
+}
+form {
+    display: flex; 
+    flex-direction: column; 
+    margin-top: 1rem; 
+    justify-content: center;
+}
+.firstLabel {
+    margin-bottom: -10px; 
+    z-index: 1; 
+    background-color: white; 
+    width: fit-content; 
+    align-self: center;
+}
+.lastLabel {
+    margin-bottom: -10px; 
+    z-index: 1; background-color: white; 
+    width: fit-content; 
+    align-self: center;
+}
+.emailLabel {
+    margin-bottom: -10px; 
+    z-index: 1; 
+    background-color: white; 
+    width: fit-content; 
+    align-self: center;
+}
+.passwordLabel {
+    margin-bottom: -10px; 
+    z-index: 1; 
+    background-color: white; 
+    width: fit-content; 
+    align-self: center;
+}
+.confirmLabel {
+    margin-bottom: -10px; 
+    z-index: 1; 
+    background-color: white; 
+    width: 
+    fit-content; 
+    align-self: center;
+}
+p {
+    margin-top: 5%;
+}
+.submitButton {
+    margin-top: 5%;
+}

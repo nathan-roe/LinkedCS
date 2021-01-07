@@ -1,0 +1,65 @@
+body {
+    margin-top: 5rem; 
+    display: flex; 
+    justify-content: center; 
+    text-align: center;      
+    background-color:rgb(243,242,239);
+}
+.card {
+    width: inherit; 
+    height: 30rem; 
+    background-color: white; 
+    padding-left: 1rem; 
+    padding-right: 1rem;
+}
+h2 {
+    margin-top: 5%; 
+    border-bottom: 1px solid grey; 
+    width: 100%;
+}
+form {
+    display: flex; 
+    flex-direction: column; 
+    margin-top: 1rem; 
+    justify-content: center; 
+    align-items: center;
+}
+.emailDiv {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    margin-top: 15%
+}
+    .emailDiv label {
+        margin-bottom: -10px; 
+        z-index: 1; 
+        background-color: white; 
+        width: fit-content
+    }
+    .emailDiv input {
+        width: 100%;
+    }
+.passDiv {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    margin-top: 5%;
+}
+    .passDiv label {
+        margin-bottom: -10px; 
+        z-index: 1; 
+        background-color: white; 
+        width: fit-content;
+    }
+    .passDiv input {
+        width: 100%;
+    }
+.submitButton {
+    margin-top: 5%; 
+    width: 50%;
+}
+p {
+    margin-top: 2.5%;
+}
