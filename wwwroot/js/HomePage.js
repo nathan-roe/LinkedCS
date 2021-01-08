@@ -92,15 +92,25 @@ $(document).ready(() => {
         }
     });
     $(document).on("click", "#back", () => {
-        console.log(count);
         if(count == 1)
         {
-            $(".popup").load("changeToPhotos");
-            $("#photoDropdown").append("<option id='pFile' value='newFile'>" + photoName +"</option>");
-            $('#photoDropdown').val("newFile");
-            
-            $("#backDropdown").append("<option id='bFile' value='newFile'>" + backName +"</option>");
-            $('#backDropdown').val("newFile");
+            $.ajax({
+                url: "/changeToPhotos",
+                method: "get",
+                success: res => $(".popup").replaceWith(res),
+                complete: () => {
+                    if(photoName != "Default")
+                    {
+                        $("#photoDropdown").append("<option id='pFile' value='newFile'>" + photoName +"</option>");
+                        $('#photoDropdown').val("newFile");
+                    }
+                    if(backName != "Default")
+                    {
+                        $("#backDropdown").append("<option id='bFile' value='newFile'>" + backName +"</option>");
+                        $('#backDropdown').val("newFile");
+                    }
+                }
+            });
             count--;
         }
         else if(count == 2)
@@ -143,7 +153,19 @@ $(document).ready(() => {
             $("#popupButton").css("background-color", "white");
         });
     }
-
+//___________________ Finish ________________________//
+    $(document).on("click", "#finish", () => {
+        console.log("You should be on the friends page");
+        $.ajax({
+            url: "/processPopup",
+            method: "post",
+            success: () => {
+                $(".popup").remove();
+                $("body").css("position", "");
+                $("body").css("overflow-y", "");
+            }
+        });
+    });
 
 // _______ Buttons on main page __________  //
 

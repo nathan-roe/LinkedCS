@@ -23,6 +23,10 @@ namespace LinkedCS.Controllers
         [HttpGet("main")]
         public IActionResult HomePage()
         {
+            if(HttpContext.Session.GetInt32("uuid") == null)
+            {
+                return RedirectToAction("LoginPage", "LogReg");
+            }
             ViewBag.partial = "HomePartials/PhotosPopup";
             User thisUser = _context.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("uuid"));
             return View("HomePage", thisUser);
@@ -89,6 +93,16 @@ namespace LinkedCS.Controllers
             
             return RedirectToAction("HomePage");
         }   
-        
+        [HttpPost("processPopup")]
+        public IActionResult processPopup() 
+        {
+            User thisUser = _context.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("uuid"));
+            thisUser.HasLogged = true;
+            thisUser.Photo = HttpContext.Session.GetString("profPhoto");
+            thisUser.Background = HttpContext.Session.GetString("profBack");
+            thisUser.Summary = HttpContext.Session.GetString("bio");
+            _context.SaveChanges();
+            return RedirectToAction("HomePage");
+        }
     }
 }
