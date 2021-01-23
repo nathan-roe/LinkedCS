@@ -1,0 +1,58 @@
+@using LinkedCS.Models
+@model User
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='HomePage.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/discover_styles.css">
+    <script src="~/js/Discover.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="row">
+            <div class="col">
+                
+            </div>
+            <div class="col-10">
+                <div class="card main">
+                    <div class="cardHeader">
+                        <button id="searchButton">Search</button>
+                    </div>
+                    <div class="mainContent">
+
+                        <div class="profile">
+                            <div id="profDiv1">
+                                <div class="potFriend">
+                                    <div id="pf1">
+                                        <form asp-action="AddConnection" asp-controller="Home" method="post">
+                                            <input type="hidden">
+                                            <button type="submit">Add Connection</button>
+                                        </form>
+                                        <img src="~/images/avatar.png" alt="User Background" style="height: 5rem; width: 5rem; border-radius: 50%;">
+                                    </div>
+                                    <div id="pf2">
+                                        <p>FirstName LastName</p>
+                                    </div>
+                                    <div class="pfBio">
+                                        
+                                        <p>Summary</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

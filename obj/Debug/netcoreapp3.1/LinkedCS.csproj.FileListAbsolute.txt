@@ -44,7 +44,11 @@ C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\bin\Debug\netcoreapp3.1\S
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\LinkedCS.TagHelpers.input.cache
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\LinkedCS.TagHelpers.output.cache
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\LinkedCS.RazorCoreGenerate.cache
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\Discover.cshtml.g.cs
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePage.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\BioPopup.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\FriendsPopup.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\PhotosPopup.cshtml.g.cs
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\LogReg\LoginPage.cshtml.g.cs
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\LogReg\RegPage.cshtml.g.cs
@@ -60,6 +64,9 @@ C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\L
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\staticwebassets\LinkedCS.StaticWebAssets.Manifest.cache
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\staticwebassets\LinkedCS.StaticWebAssets.xml
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\LinkedCS.genruntimeconfig.cache
-C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\PhotosPopup.cshtml.g.cs
-C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\BioPopup.cshtml.g.cs
-C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\FriendsPopup.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\SearchedProfile.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\AddPost.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\ActionForms\likeForm.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\AddComment.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\ActionForms\BookmarkForm.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\ProfilePage.cshtml.g.cs

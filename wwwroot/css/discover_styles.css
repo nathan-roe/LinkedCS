@@ -1,0 +1,88 @@
+body {
+    margin-top: 5rem; 
+    margin-bottom: 5rem; 
+    background-color:rgb(243,242,239); 
+    padding: 0;
+}
+.main {
+    width: 100%; 
+    height: fit-content; 
+    min-height: 32rem;
+}
+    .cardHeader {
+        width: 100%; 
+        height: 3rem; 
+        border-bottom: 1px solid lightgrey; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+    }  
+        #searchButton {
+            width: 40%; 
+            height: 60%; 
+            background: transparent;
+        }
+        #searchInput {
+            width: 40%; 
+            height: 60%; 
+            background: transparent;
+        }
+    .mainContent
+    {
+        height: 30rem; 
+        width: 100%; 
+        outline: 1px solid blue;
+    }
+    .profile {
+        height: fit-content; 
+        width: 100%; 
+        display: flex; 
+        margin-top: 1rem;
+    }
+        #profDiv1 {
+            width: 100%; 
+            height: 100%; 
+        }
+            .potFriend {
+                background-color: white;
+                margin-top: 1rem;
+                border: 1px solid lightgrey;
+            }
+                #pf1 {
+                    width: 100%; 
+                    height: 50px; 
+                    background-color: grey; 
+                    display: flex; 
+                    justify-content: center; 
+                    padding-top: 10px;
+                }
+                    #pf1 div {
+                        width: 75px; 
+                        height: 75px; 
+                        border-radius: 50%; 
+                        /* background-color: blue;  */
+                        
+                        z-index: 1; 
+                        position: absolute;
+                    }
+                    #pf1 form {
+                        
+                        z-index: 2;
+                        position: absolute;
+                        margin-right: -25rem;
+                    }
+                    #pf1 form button {
+                        background: lightgrey;
+                    }
+                #pf2 {
+                    width: 100%; 
+                    height: 100px;
+                    text-align: center;
+                }
+                    #pf2 p {
+                        margin-top: 2rem;
+                    }
+                /* .pfBio {
+                    text-align: center;
+                } */
+    

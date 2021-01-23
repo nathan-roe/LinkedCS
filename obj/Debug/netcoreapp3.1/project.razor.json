@@ -14397,6 +14397,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\ProfilePage.cshtml",
+      "TargetPath": "Views\\Home\\ProfilePage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\ActionForms\\BookmarkForm.cshtml",
+      "TargetPath": "Views\\Home\\ActionForms\\BookmarkForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\HomePartials\\SearchedProfile.cshtml",
+      "TargetPath": "Views\\Home\\HomePartials\\SearchedProfile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\HomePartials\\FriendsPopup.cshtml",
       "TargetPath": "Views\\Home\\HomePartials\\FriendsPopup.cshtml",
       "FileKind": "mvc"
@@ -14407,8 +14422,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\HomePartials\\AddComment.cshtml",
+      "TargetPath": "Views\\Home\\HomePartials\\AddComment.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\LogReg\\RegPage.cshtml",
       "TargetPath": "Views\\LogReg\\RegPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\Discover.cshtml",
+      "TargetPath": "Views\\Home\\Discover.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\ActionForms\\likeForm.cshtml",
+      "TargetPath": "Views\\Home\\ActionForms\\likeForm.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14444,6 +14474,11 @@
     {
       "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\HomePartials\\AddPost.cshtml",
+      "TargetPath": "Views\\Home\\HomePartials\\AddPost.cshtml",
       "FileKind": "mvc"
     },
     {

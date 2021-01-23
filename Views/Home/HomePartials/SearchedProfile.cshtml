@@ -1,0 +1,23 @@
+@using LinkedCS.Models
+@model UserConnection
+@{Layout = null;}
+<div class="profile">
+    <div id="profDiv1">
+        <div class="potFriend">
+            <div id="pf1">
+                <form asp-action="AddConnection" asp-controller="Home" method="post">
+                    <input type="hidden" asp-for="UserFollowedId" value="@ViewBag.User.UserId">
+                    <button type="submit">Add Connection</button>
+                </form>
+                <img src="~/images/avatar.png" alt="User Background" style="height: 5rem; width: 5rem; border-radius: 50%;">
+            </div>
+            <div id="pf2">
+                <p>@ViewBag.User.FirstName @ViewBag.User.LastName</p>
+            </div>
+            <div class="pfBio">
+                
+                <p>@ViewBag.User.Summary</p>
+            </div>
+        </div>
+    </div>
+</div>

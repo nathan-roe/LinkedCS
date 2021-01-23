@@ -168,33 +168,84 @@ $(document).ready(() => {
     });
 
 // _______ Buttons on main page __________  //
+    $(".feedFooter")
+        .on("mouseenter", "svg", e => {
+            $(e.target).css({fill: "blue", "cursor": "pointer"});
+        })
+        .on("mouseleave", "svg", e => {
+            $(e.target).css({fill: "rgb(62,78,90)"})
+        });
+    $(document).on("click", "#threeDots", () => {
+        
+    })
+// ________On click events for posts_______________//
 
-    $(document).on("mouseenter", "#comment", () => {
-        $("#comment").css({fill: "blue"}).css("cursor", "pointer");
-    }).on("mouseleave", "#comment", () => {
-        $("#comment").css({fill: "black"});
+    $(document).on("click", ".postInput", () => {
+        $(".postPopup").css({"z-index": "2", "position": "absolute", "width": "85%", "height": "20rem"});
+        $(".main").css({"-webkit-filter": "blur(5px)", "-moz-filter": "blur(5px)", "-o-filter": "blur(5px)", "-ms-filter": "blur(5px)", "filter": "blur(5px)"});
+        $(".postPopup").load("addPostView");
     });
+    $(document).on("click", "#postCancel", () => {
+        $(".postPopup").empty().css({"width": "0", "height": "0"})
+        $(".main").css({"-webkit-filter": "blur(0px)", "-moz-filter": "blur(0px)", "-o-filter": "blur(0px)", "-ms-filter": "blur(0px)", "filter": "blur(0px)"});
+    });
+    
+    //_______ Actions ____________//
+        // Like
 
-    $(document).on("mouseenter", "#heart", () => {
-        $("#heart").css({fill: "blue"}).css("cursor", "pointer");
-    }).on("mouseleave", "#heart", () => {
-        $("#heart").css({fill: "black"});
-    });
 
-    $(document).on("mouseenter", "#bookmark", () => {
-        $("#bookmark").css({fill: "blue"}).css("cursor", "pointer");
-    }).on("mouseleave", "#bookmark", () => {
-        $("#bookmark").css({fill: "black"});
+    $(".actions").on("click", "svg", e => {
+        if($(e.target).attr("id") != undefined)
+        {
+            if($(e.target).attr("id").includes('comment'))
+            {
+                let comId = Number($(e.target).attr("id").substring(7));
+                $(".postPopup").css({"z-index": "2", "position": "absolute", "width": "85%", "height": "50%"});
+                $(".main").css({"-webkit-filter": "blur(5px)", "-moz-filter": "blur(5px)", "-o-filter": "blur(5px)", "-ms-filter": "blur(5px)", "filter": "blur(5px)"});
+                $.ajax({
+                    url: '/addCommentView',
+                    method: 'get',
+                    data: {postId: comId},
+                    success: res => {
+                        $(".postPopup").append(res);
+                    }
+                });
+            }
+            else if($(e.target).attr("id").includes('arrow'))
+            {   
+                let arrId = Number($(e.target).attr("id").substring(5));
+                console.log(arrId);
+            }
+            else if($(e.target).attr("id").includes('bookmark'))
+            {
+                let bookmarkId = Number($(e.target).attr("id").substring(8));
+                console.log(bookmarkId);
+            }
+        }
+        
     });
+        // Comment
 
-    $(document).on("mouseenter", "#arrow", () => {
-        $("#arrow").css({fill: "blue"}).css("cursor", "pointer");
-    }).on("mouseleave", "#arrow", () => {
-        $("#arrow").css({fill: "black"});
+    $(document).on("click", "#commentCancel", () => {
+        $(".postPopup").empty().css({"width": "0", "height": "0"})
+        $(".main").css({"-webkit-filter": "blur(0px)", "-moz-filter": "blur(0px)", "-o-filter": "blur(0px)", "-ms-filter": "blur(0px)", "filter": "blur(0px)"});
     });
-    $(document).on("mouseenter", "#threeDots", () => {
-        $("#threeDots").css({fill: "blue"}).css("cursor", "pointer");
-    }).on("mouseleave", "#threeDots", () => {
-        $("#threeDots").css({fill: "black"});
+    // Links 
+    $(document).on("click", "img", e => {
+        if($(e.target).attr("id").includes('feedProfImg'))
+        {
+            console.log("You clicked me!");
+            let userId = Number($(e.target).attr("id").substring(11));
+            $.ajax({
+                url: "/profile/" + userId,
+                type: "get",
+                success: res => {
+                    window.history.pushState(userId, "LinkedCS", "/profile/" + userId);
+                    document.open();
+                    document.write(res);
+                    document.close();
+                }
+            });
+        }
     });
 });

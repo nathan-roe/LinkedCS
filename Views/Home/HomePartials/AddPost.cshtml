@@ -1,0 +1,17 @@
+@using LinkedCS.Models
+@model Post
+@{Layout = null;}
+<div class="postContainer">
+    <button id="postCancel">Cancel</button>
+    <h2>Create a Post</h2>
+    <form id="postForm" asp-action="addPost" asp-controller="Home" method="post">
+        <textarea asp-for="Desc" placeholder="Say something..."></textarea>
+        <div class="addPostButtons">
+            <input asp-for="Image" type="file"/>
+            <input asp-for="Video" type="file"/>
+            <input asp-for="Article" type="url"/>
+        </div>
+
+        <input type="submit" value="Post">
+    </form>
+</div>

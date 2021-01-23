@@ -3,14 +3,16 @@ using System;
 using LinkedCS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LinkedCS.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210122194043_LinkedCSMigration")]
+    partial class LinkedCSMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,27 +193,6 @@ namespace LinkedCS.Migrations
                     b.ToTable("UserConnections");
                 });
 
-            modelBuilder.Entity("LinkedCS.Models.UserView", b =>
-                {
-                    b.Property<int>("UserViewId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserViewedId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ViewerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserViewId");
-
-                    b.HasIndex("UserViewedId");
-
-                    b.HasIndex("ViewerId");
-
-                    b.ToTable("UserViews");
-                });
-
             modelBuilder.Entity("LinkedCS.Models.Bookmark", b =>
                 {
                     b.HasOne("LinkedCS.Models.Post", "PostBookmarked")
@@ -277,21 +258,6 @@ namespace LinkedCS.Migrations
                     b.HasOne("LinkedCS.Models.User", "UserFollowed")
                         .WithMany("Followers")
                         .HasForeignKey("UserFollowedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LinkedCS.Models.UserView", b =>
-                {
-                    b.HasOne("LinkedCS.Models.User", "UserViewed")
-                        .WithMany("ViewedUsers")
-                        .HasForeignKey("UserViewedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LinkedCS.Models.User", "Viewer")
-                        .WithMany("Viewers")
-                        .HasForeignKey("ViewerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

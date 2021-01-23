@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace LinkedCS.Models
@@ -10,7 +11,6 @@ namespace LinkedCS.Models
         [Required]
         public string FirstName { get; set; }
         [Required]
-
         public string LastName { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -29,6 +29,25 @@ namespace LinkedCS.Models
         public string Background {get;set;} = "grey";
         public bool HasLogged {get;set;} = false;
         public string Summary {get;set;} = "";
+
+        [InverseProperty("UserFollowed")]
+        public List<UserConnection> Followers { get; set; }
+
+        [InverseProperty("Follower")]
+        public List<UserConnection> UsersFollowed { get; set; }
+
+
+        [InverseProperty("Viewer")]
+        public List<UserView> Viewers {get;set;}
+        [InverseProperty("UserViewed")]
+        public List<UserView> ViewedUsers {get;set;}
+
+
+        [InverseProperty("UserWhoPosted")]
+        public List<Post> Posts {get;set;}
+        public List<Comment> UserComments {get;set;}
+        public List<LikedPost> LikedPosts {get;set;}
+        public List<Bookmark> Bookmarks {get;set;}
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }

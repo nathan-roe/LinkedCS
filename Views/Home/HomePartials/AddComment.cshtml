@@ -1,0 +1,29 @@
+@using LinkedCS.Models
+@model Comment
+@{Layout = null;}
+<div class="comments">
+    <div id="cHeader">
+        <button id="commentCancel">Cancel</button>
+        <form class="addComment" asp-action="AddComment" asp-controller="Home" method="post">
+            <textarea asp-for="Content" placeholder="Add a comment...">
+            </textarea>
+            <input type="hidden" asp-for="PostId" value="@ViewBag.thisPost.PostId">
+            <input type="submit"/>
+        </form>
+    </div>
+    <div id="cBody">
+        @{
+            if(ViewBag.thisPost.Comments != null)
+            {
+                foreach(Comment c in ViewBag.thisPost.Comments)
+                {
+                    <div class="comment">
+                        <p>@c.UserWhoCommented.FirstName @c.UserWhoCommented.LastName @@ @c.CreatedAt</p>
+                        <p>@c.Content</p>
+                        
+                    </div>
+                }
+            }
+        }
+    </div>
+</div>

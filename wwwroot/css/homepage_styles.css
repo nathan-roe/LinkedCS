@@ -1,3 +1,6 @@
+* {
+    color: rgb(62,78,90)
+}
 body {
     margin-top: 5rem; 
     margin-bottom: 5rem; 
@@ -51,7 +54,7 @@ body {
                     height: 50%; 
                     margin-top: 1rem; 
                     margin-bottom: 1rem; 
-                    border: 1px solid purple; 
+                    border: 1px solid lightgrey; 
                     border-radius: 10rem; 
                     display: flex; 
                     justify-content: start; 
@@ -144,7 +147,12 @@ body {
                             margin-left: .5rem;
                         }
                 .feedContent {
-                    height: 70%;
+                    height: 65%;
+                }
+                .feedCaption {
+                    height: 5%;
+                    padding-left: 1rem;
+                    text-align: top;
                 }
                 .feedFooter {
                     height: 15%; 
@@ -165,13 +173,7 @@ body {
                         display: flex; 
                         align-items: center;
                     }
-                        #comment {
-                            margin-left: .5rem;
-                        }
-                        #arrow {
-                            margin-left: .5rem;
-                        }
-                        #bookmark {
+                        .actions svg{
                             margin-left: .5rem;
                         }
     .bc3 {
@@ -200,6 +202,13 @@ body {
                         justify-content: center; 
                         padding-top: 10px;
                     }
+                        #pf1 p {
+                            z-index: 2;
+                            position: absolute;
+                            right: 1rem;
+                            color: white;
+                            font-weight: bold;
+                        }
                         #pf1 div {
                             width: 75px; 
                             height: 75px; 
@@ -216,3 +225,107 @@ body {
                     .pfBio {
                         text-align: center;
                     }
+    .postPopup {
+        width: 0%;
+        height: 0%;
+        display: flex;
+        justify-content: center;
+    }
+        .postContainer {
+            margin-left: -7%;
+            width: 50%;
+            height: 100%;
+            border-radius: 25px;
+            border: 1px solid grey;
+            text-align: center;
+        }
+            #postCancel {
+                position: absolute;
+                z-index: 4;
+                top: 2px;
+                right: 30%;
+                color: rgb(71, 185, 223);
+                background: transparent;
+                border: none;
+            }
+            .postContainer form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+                .postContainer form textarea {
+                    width: 45%;
+                    height: 8rem;
+                    position: absolute;
+                    bottom: 7rem;
+                }
+                .addPostButtons {
+                    display: flex;
+                    justify-content: space-between;
+                    position: absolute;
+                    bottom: 3rem;
+                    width: 45%;
+                    margin-left: 3rem;
+                }
+                    .addPostButtons input[type=file] {
+                        width: 25%;
+                        color: transparent;
+                    }
+                    .postContainer form input[type=submit] {
+                    position: absolute;
+                    bottom: 0;
+                    border-radius: 0px 0px 25px 25px;
+                    width: 50%;
+                }
+        .comments {
+            margin-left: -7%;
+            width: 100%;
+            height: fit-content;
+            min-height: 10rem;
+            border-radius: 25px;
+            border: 1px solid grey;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+            #cHeader {
+                width: 100%;
+            }
+                #commentCancel {
+                    position: absolute;
+                    z-index: 4;
+                    top: 2px;
+                    right: 5%;
+                    color: rgb(7,118,237);
+                    background: transparent;
+                    border: none;
+                }
+                #cHeader form {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+                    #cHeader form textarea{
+                        margin-top: 2rem;
+                        width: 70%;
+                        height: 3rem;
+                    }
+                    #cHeader form input {
+                        width: 10%;
+                        margin-top: 2rem;
+                        height: 3rem;
+                    }
+            #cBody {
+                width: 70%;
+                height: fit-content;
+            }
+                .comment {
+                    width: 100%;
+                    height: 5rem;
+                    background-color: white;
+                    border: 1px solid lightgrey;
+                    border-radius: 25px;
+                    margin: 1rem;
+                }
