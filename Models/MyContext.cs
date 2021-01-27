@@ -11,5 +11,15 @@ namespace LinkedCS.Models
         public DbSet<LikedPost> LikedPosts {get;set;}
         public DbSet<Bookmark> Bookmarks {get;set;}
         public DbSet<UserView> UserViews {get;set;}
+        public DbSet<Preference> Preferences {get;set;}
+        public DbSet<Story> Stories {get;set;}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.UserPreference)
+                .WithOne(up => up.UserWithPreference)
+                .HasForeignKey<Preference>(p => p.UserForeignKey);
+        }
     }
 }

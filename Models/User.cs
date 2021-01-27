@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 namespace LinkedCS.Models
 {
     public class User
@@ -23,9 +24,9 @@ namespace LinkedCS.Models
         [DataType(DataType.Password)]
         [Required]
         public string Confirm { get; set; }
-        [Required]
-        public string Photo {get;set;} = "~/images/avatar.png";
-        [Required]
+        
+        public string Photo {get;set;}
+
         public string Background {get;set;} = "grey";
         public bool HasLogged {get;set;} = false;
         public string Summary {get;set;} = "";
@@ -48,6 +49,13 @@ namespace LinkedCS.Models
         public List<Comment> UserComments {get;set;}
         public List<LikedPost> LikedPosts {get;set;}
         public List<Bookmark> Bookmarks {get;set;}
+        
+        public Preference UserPreference {get;set;}
+
+        [InverseProperty("StoryCreator")]
+        public List<Story> UserStories {get;set;}
+
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }

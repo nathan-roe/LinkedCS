@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 namespace LinkedCS.Models
 {
     public class UserView
@@ -7,5 +9,8 @@ namespace LinkedCS.Models
         public User Viewer {get;set;}
         public int UserViewedId {get;set;}
         public User UserViewed {get;set;}
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }

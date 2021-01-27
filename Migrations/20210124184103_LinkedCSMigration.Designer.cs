@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LinkedCS.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210123190815_AddedViewers")]
-    partial class AddedViewers
+    [Migration("20210124184103_LinkedCSMigration")]
+    partial class LinkedCSMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

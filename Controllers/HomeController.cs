@@ -10,6 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
+
+using System.Drawing;
+using System.IO;
+
+
 namespace LinkedCS.Controllers
 {
     public class HomeController : Controller
@@ -29,6 +34,8 @@ namespace LinkedCS.Controllers
             }
             ViewBag.partial = "HomePartials/PhotosPopup";
             ViewBag.thisUser = _context.Users
+                .Include(u => u.UserPreference)
+                .Include(u => u.Viewers)
                 .Include(u => u.Bookmarks)
                 .Include(u => u.LikedPosts)
                 .ThenInclude(lp => lp.PostLiked)
@@ -41,6 +48,11 @@ namespace LinkedCS.Controllers
                 .Include(u => u.Followers)
                 .ThenInclude(uc => uc.Follower)
                 .ToList();
+            if(ViewBag.thisUser.UserPreference != null)
+            {
+                ViewBag.ViewerPref = SpecifiedUsers(ViewBag.thisUser.UserPreference.ViewPoint);
+            }
+
 
             List<int> conSpaceArr = new List<int>();
             foreach(User u in ViewBag.AllUsers)
@@ -117,9 +129,11 @@ namespace LinkedCS.Controllers
         {
             User thisUser = _context.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("uuid"));
             thisUser.HasLogged = true;
+            thisUser.Summary = HttpContext.Session.GetString("bio");
             thisUser.Photo = HttpContext.Session.GetString("profPhoto");
             thisUser.Background = HttpContext.Session.GetString("profBack");
-            thisUser.Summary = HttpContext.Session.GetString("bio");
+
+
             _context.SaveChanges();
             return RedirectToAction("HomePage");
         }
@@ -276,45 +290,106 @@ namespace LinkedCS.Controllers
             {
                 return RedirectToAction("HomePage");
             }
-            System.Console.WriteLine(userId);
             User thisUser = _context.Users
                 .Include(u => u.Viewers)
                 .ThenInclude(v => v.Viewer)
                 .FirstOrDefault(u => u.UserId == userId);
             User loggedUser = _context.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("uuid"));
-            bool boolVal = false;
-            foreach(UserView uv in thisUser.Viewers)
+            if(_context.UserViews.FirstOrDefault(uv => uv.ViewerId == loggedUser.UserId && uv.UserViewedId == thisUser.UserId) == null)
             {
-                System.Console.WriteLine($"{uv.Viewer.FirstName} viewed {uv.UserViewed.FirstName}");
-                if(uv.ViewerId == loggedUser.UserId)
+                UserView u = new UserView 
                 {
-                    boolVal = true;
-                }
+                    UserViewedId = thisUser.UserId, 
+                    UserViewed = thisUser,
+                    ViewerId = loggedUser.UserId,
+                    Viewer = loggedUser
+                };
+                _context.Add(u);
+                _context.SaveChanges();
+                System.Console.WriteLine("Added new connection!");
             }
-            if(!boolVal)
+            else 
             {
-                UserView u = new UserView();
-                u.UserViewedId = thisUser.UserId;
-                return AddViewer(u);
+                System.Console.WriteLine("This connection already exists");
             }
-            else{
-                return View("ProfilePage", thisUser);
-            }
+            return View("ProfilePage", thisUser);
         }
-        [HttpPost("addViewer")]
-        public IActionResult AddViewer(UserView uv)
+        
+        [HttpGet("/penPopup")]
+        public IActionResult PenPopup() 
         {
-            System.Console.WriteLine("This person has not viewed this profile yet!");
+            return PartialView("HomePartials/PenPopup");
+        }
 
-            System.Console.WriteLine($"The association is {uv}");
-            int userId = (int)HttpContext.Session.GetInt32("uuid");
-            System.Console.WriteLine($"User id is {userId}");
-            uv.ViewerId = userId;
-            _context.Add(uv);
+        [HttpPost("changeViewerPref")]
+        public IActionResult ChangeViewerPref(string viewPref)
+        {
+            User thisUser = _context.Users
+                .Include(u => u.UserPreference)
+                .FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("uuid"));
+
+            if(thisUser.UserPreference == null)
+            {
+                Preference newPref = new Preference() 
+                {
+                    UserWithPreference = thisUser,
+                    ViewPoint = viewPref
+                };
+                _context.Add(newPref);
+                thisUser.UserPreference = newPref;
+            }
+            else
+            {
+                thisUser.UserPreference.ViewPoint = viewPref;
+            }
             _context.SaveChanges();
-            System.Console.WriteLine("Successfully added connection");
+            System.Console.WriteLine($"{thisUser.FirstName}'s ViewPoint preference is {thisUser.UserPreference.ViewPoint}");
+            return RedirectToAction("HomePage");
+        }
 
-            return RedirectToAction("ProfilePage", uv.UserViewedId);
+        public List<UserView> SpecifiedUsers(string strVal)
+        {
+            List<UserView> userViews = new List<UserView>();
+            if(strVal == "today")
+            {
+                userViews = _context.UserViews
+                    .Include(uv => uv.Viewer)
+                    .Include(uv => uv.UserViewed)
+                    .Where(uv => uv.UserViewedId == HttpContext.Session.GetInt32("uuid") && uv.CreatedAt >= DateTime.Now.AddDays(-1))
+                    .ToList();
+            }
+            else if(strVal == "week")
+            {
+                userViews = _context.UserViews
+                    .Include(uv => uv.Viewer)
+                    .Include(uv => uv.UserViewed)
+                    .Where(uv => uv.UserViewedId == HttpContext.Session.GetInt32("uuid") && uv.CreatedAt >= DateTime.Now.AddDays(-7))
+                    .ToList();
+            }
+            else if(strVal == "month")
+            {
+                userViews = _context.UserViews
+                    .Include(uv => uv.Viewer)
+                    .Include(uv => uv.UserViewed)
+                    .Where(uv => uv.UserViewedId == HttpContext.Session.GetInt32("uuid") && uv.CreatedAt >= DateTime.Now.AddMonths(-1))
+                    .ToList();
+            }
+            else if(strVal == "year")
+            {
+                userViews = _context.UserViews
+                    .Include(uv => uv.Viewer)
+                    .Include(uv => uv.UserViewed)
+                    .Where(uv => uv.UserViewedId == HttpContext.Session.GetInt32("uuid") && uv.CreatedAt >= DateTime.Now.AddYears(-1))
+                    .ToList();
+            }
+            else
+            {
+                userViews = _context.UserViews
+                    .Include(uv => uv.Viewer)
+                    .Include(uv => uv.UserViewed)
+                    .ToList();
+            }
+            return userViews;
         }
 
 

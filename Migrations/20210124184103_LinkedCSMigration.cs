@@ -82,6 +82,32 @@ namespace LinkedCS.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserViews",
+                columns: table => new
+                {
+                    UserViewId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ViewerId = table.Column<int>(nullable: false),
+                    UserViewedId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserViews", x => x.UserViewId);
+                    table.ForeignKey(
+                        name: "FK_UserViews_Users_UserViewedId",
+                        column: x => x.UserViewedId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserViews_Users_ViewerId",
+                        column: x => x.ViewerId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Bookmarks",
                 columns: table => new
                 {
@@ -206,6 +232,16 @@ namespace LinkedCS.Migrations
                 name: "IX_UserConnections_UserFollowedId",
                 table: "UserConnections",
                 column: "UserFollowedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserViews_UserViewedId",
+                table: "UserViews",
+                column: "UserViewedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserViews_ViewerId",
+                table: "UserViews",
+                column: "ViewerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -221,6 +257,9 @@ namespace LinkedCS.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserConnections");
+
+            migrationBuilder.DropTable(
+                name: "UserViews");
 
             migrationBuilder.DropTable(
                 name: "Posts");

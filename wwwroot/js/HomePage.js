@@ -248,4 +248,51 @@ $(document).ready(() => {
             });
         }
     });
+    // Adjust Settings
+        // Pen
+    $(".table2")
+        .on("mouseenter", ".viewCountPen", () => {
+            $("#penIcon").css({fill: "blue", "cursor": "pointer"});
+
+        })
+        .on("mouseleave", ".viewCountPen", () => {
+            $("#penIcon").css({fill: "rgb(62,78,90)"});
+        })
+        .on("click", ".viewCountPen", () => {
+            $.ajax({
+                url: "/penPopup",
+                type: "get",
+                success: res => {
+                    $(".viewerPref").append(res);
+                }
+            });
+        });
+
+    $(document).on("click", "html", e => {
+        if($(e.target).closest('.penBody').length === 0) {
+            document.getElementById("penPost") != undefined ? 
+                $(".penBody").remove()
+            :
+                "";
+        }
+    });
+    
+    $(document)
+        .on("change", ".penBody", e => {
+            console.log("Change Event");
+            let optVal = document.getElementById("penPost").value;
+            let posArr = ["total", "year", "month", "week", "today"];
+            posArr.includes(optVal) ? 
+                $.ajax({
+                    url: "/changeViewerPref",
+                    type: "post",
+                    data: {"viewPref": e.target.value},
+                    success: () => {
+                        $(".penBody").remove();
+                    }
+                })
+            :
+                console.log(`not valid, optVal is ${optVal}`);
+        });
 });
+

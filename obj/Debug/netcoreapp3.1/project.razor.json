@@ -14402,6 +14402,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\HomePartials\\PenPopup.cshtml",
+      "TargetPath": "Views\\Home\\HomePartials\\PenPopup.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Nathan\\Documents\\Projects\\c#\\WebApps\\LinkedCS\\Views\\Home\\ActionForms\\BookmarkForm.cshtml",
       "TargetPath": "Views\\Home\\ActionForms\\BookmarkForm.cshtml",
       "FileKind": "mvc"

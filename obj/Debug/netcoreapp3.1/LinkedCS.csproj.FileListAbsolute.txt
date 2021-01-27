@@ -70,3 +70,9 @@ C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\R
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\AddComment.cshtml.g.cs
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\ActionForms\BookmarkForm.cshtml.g.cs
 C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\ProfilePage.cshtml.g.cs
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Nathan\Documents\Projects\c#\WebApps\LinkedCS\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomePartials\PenPopup.cshtml.g.cs

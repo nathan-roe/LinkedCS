@@ -3,14 +3,16 @@ using System;
 using LinkedCS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LinkedCS.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210124201959_PhotoCanBeNull")]
+    partial class PhotoCanBeNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,31 +151,6 @@ namespace LinkedCS.Migrations
                     b.ToTable("Preferences");
                 });
 
-            modelBuilder.Entity("LinkedCS.Models.Story", b =>
-                {
-                    b.Property<int>("StoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Content")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("StoryId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Stories");
-                });
-
             modelBuilder.Entity("LinkedCS.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -245,12 +222,6 @@ namespace LinkedCS.Migrations
                     b.Property<int>("UserViewId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("UserViewedId")
                         .HasColumnType("int");
@@ -326,15 +297,6 @@ namespace LinkedCS.Migrations
                     b.HasOne("LinkedCS.Models.User", "UserWithPreference")
                         .WithOne("UserPreference")
                         .HasForeignKey("LinkedCS.Models.Preference", "UserForeignKey")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LinkedCS.Models.Story", b =>
-                {
-                    b.HasOne("LinkedCS.Models.User", "StoryCreator")
-                        .WithMany("UserStories")
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

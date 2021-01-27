@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LinkedCS.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210122194043_LinkedCSMigration")]
-    partial class LinkedCSMigration
+    [Migration("20210125223327_AddedCreatedAt")]
+    partial class AddedCreatedAt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -125,6 +125,32 @@ namespace LinkedCS.Migrations
                     b.ToTable("Posts");
                 });
 
+            modelBuilder.Entity("LinkedCS.Models.Preference", b =>
+                {
+                    b.Property<int>("PreferenceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("UserForeignKey")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ViewPoint")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("PreferenceId");
+
+                    b.HasIndex("UserForeignKey")
+                        .IsUnique();
+
+                    b.ToTable("Preferences");
+                });
+
             modelBuilder.Entity("LinkedCS.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -132,7 +158,6 @@ namespace LinkedCS.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Background")
-                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("CreatedAt")
@@ -158,7 +183,6 @@ namespace LinkedCS.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Photo")
-                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Summary")
@@ -191,6 +215,33 @@ namespace LinkedCS.Migrations
                     b.HasIndex("UserFollowedId");
 
                     b.ToTable("UserConnections");
+                });
+
+            modelBuilder.Entity("LinkedCS.Models.UserView", b =>
+                {
+                    b.Property<int>("UserViewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("UserViewedId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ViewerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserViewId");
+
+                    b.HasIndex("UserViewedId");
+
+                    b.HasIndex("ViewerId");
+
+                    b.ToTable("UserViews");
                 });
 
             modelBuilder.Entity("LinkedCS.Models.Bookmark", b =>
@@ -247,6 +298,15 @@ namespace LinkedCS.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("LinkedCS.Models.Preference", b =>
+                {
+                    b.HasOne("LinkedCS.Models.User", "UserWithPreference")
+                        .WithOne("UserPreference")
+                        .HasForeignKey("LinkedCS.Models.Preference", "UserForeignKey")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("LinkedCS.Models.UserConnection", b =>
                 {
                     b.HasOne("LinkedCS.Models.User", "Follower")
@@ -258,6 +318,21 @@ namespace LinkedCS.Migrations
                     b.HasOne("LinkedCS.Models.User", "UserFollowed")
                         .WithMany("Followers")
                         .HasForeignKey("UserFollowedId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LinkedCS.Models.UserView", b =>
+                {
+                    b.HasOne("LinkedCS.Models.User", "UserViewed")
+                        .WithMany("ViewedUsers")
+                        .HasForeignKey("UserViewedId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LinkedCS.Models.User", "Viewer")
+                        .WithMany("Viewers")
+                        .HasForeignKey("ViewerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
